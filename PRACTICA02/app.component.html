@@ -1,0 +1,52 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div style="text-align:center">
+  <h1>
+    {{ title }}! 
+  </h1>
+  
+</div>
+
+
+<div class='class_concesionario'>
+
+<form class='classform1' #f='ngForm' >
+
+<br/>
+<br/>
+<div class='txtInline'>Filtrar por:</div><input type='search' placeholder="(marca de coche)" name='filtro2' [(ngModel)]='filtro'/>
+<br/><br/>
+
+
+<table border='1px' width="700px">
+<thead>
+<td  align='center'>Foto</td><td>Marca</td><td>Modelo</td><td>Año</td><td>En venta desde</td><td align="right">Precio</td><td align="right">PVP</td><td align="center">Acciones</td>
+</thead>
+
+<tr *ngFor='let id of getFiltrados(); let i=index'>
+    <td align='center'>
+		<img src="assets/{{coches[id].foto}}" width='64px' height='64px' *ngIf='[coches[id].foto]!=""'/>
+		<p *ngIf='[coches[id].foto]==""'>(sin foto!)</p>
+	</td>
+	<td>{{coches[id].marca | uppercase}}</td>
+	<td align="left">{{coches[id].modelo | lowercase}}</td>
+	<td align="center">{{coches[id].fecha_modelo | date:'yyyy'}}</td>
+	<td align="center">{{coches[id].fecha_venta | date:'MM-yyyy'}}</td>
+	<td align="right">
+		<p [ngClass]="{estadoBuenoClass: [coches[id].estado]==EstadoCoche.BUENO, estadoMaloClass: [coches[id].estado]!=EstadoCoche.BUENO}">
+		{{coches[id].precio | number:'1.0-0'}}€
+		</p>
+	</td>
+	<td align="right">{{coches[id].getPVP() | number:'1.0-0'}}€</td>
+	<td align="center">
+		<button type='button' (click)='cmd_rebajar(id)'>Rebajar</button>
+		<button type='button' (click)='cmd_vender(id)'>Vendido</button>
+	</td>
+</tr>
+
+</table>
+
+
+</form>
+</div>
+

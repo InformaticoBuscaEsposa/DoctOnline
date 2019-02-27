@@ -1,0 +1,10 @@
+
+
+.classform1 .txtInline{text-align:right;width:350px;display:inline-block}
+.classform1 input{margin-left:10px;width:200px}
+
+.class_concesionario{background-color: coral;display:block;width:700px;}
+.class_concesionario .titulo{text-align:center}
+
+.estadoBuenoClass{background-color:green}
+.estadoMaloClass{background-color:red}

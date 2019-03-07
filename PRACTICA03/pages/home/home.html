@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Ejemplo IONIC</h3>
+
+  <!--<button ion-button secondary menuToggle>Toggle Menu</button>-->
+  
+  <button ion-button (click)="gotoPage('Ejemplo1')">Botón de ejemplo 1</button>
+  <button ion-button (click)="gotoPage('Ejemplo2')">Botón de ejemplo 2</button>
+
+  <ion-item>
+  <ion-label>Este sí funciona</ion-label>
+  <ion-checkbox color="dark" checked="true"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Este no funciona</ion-label>
+    <ion-checkbox disabled="true"></ion-checkbox>
+  </ion-item>
+
+</ion-content>

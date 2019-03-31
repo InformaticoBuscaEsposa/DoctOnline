@@ -1,22 +1,37 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-   
+<ion-content style="background-color: rgb(195, 195, 195)">
+  <header>
+    <img src="../assets/icon/logoDoctOnline.jpg" style="width:70px;height:45px;" class="logo">
+    <h3 class="titulo">DOCTONLINE</h3>
+    <img src="../assets/imgs/imgUsuario.png" style="width:60px;height:50px;" class="imgUsuario">
+  </header>
+
+  <div id="diagnosticos">
+    <img src="../assets/imgs/botonPedirDiagnostico.png" style="width:130px;height:50px;" id="botonPedirDiagnostico">
+    <h5>Diagnósticos</h5>
+
+
+  </div>
+
+
+
+
   <button ion-button (click)="addCliente2()">AÑADIR</button>
-  
-  <h1>LISTADO DE CLIENTES:</h1>
-  
+
+
+
   <p *ngFor="let cliente of listaClientes ">
 	<button small ion-button (click)="delCliente([cliente.id])">-</button>
 	<button small ion-button (click)="updateCliente([cliente.id])">u</button>
 	{{cliente.nombre}}  {{cliente.apellidos}}
   </p>
-  
-  
+
+
 </ion-content>

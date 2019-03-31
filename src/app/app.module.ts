@@ -18,7 +18,7 @@ export const fireBaseConfig={
     databaseURL: "https://doctonlinebd.firebaseio.com",
     projectId: "doctonlinebd",
     storageBucket: "doctonlinebd.appspot.com",
-    messagingSenderId: "770817091146"}; 
+    messagingSenderId: "770817091146"};
 
 
 @NgModule({

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color: rgb(195, 195, 195)">
+  <!-- Cabecera -->
+  <header>
+    <img src="../assets/icon/logoDoctOnline.jpg" style="width:70px;height:45px;" class="logo">
+    <h3 class="titulo">DOCTONLINE</h3>
+    <img src="../assets/imgs/imgUsuario.png" style="width:60px;height:50px;" class="imgUsuario">
+  </header>
+
+  <!-- Formulario de registo -->
+  <div id="formularioRegistro">
+
+
+    <p *ngFor="let cliente of listaClientes ">
+    <button small ion-button (click)="delCliente([cliente.id])">-</button>
+    <button small ion-button (click)="updateCliente([cliente.id])">u</button>
+    {{cliente.nombre}}  {{cliente.apellidos}}
+    </p>
+    <button ion-button (click)='addUsuario("nombre", "apellidos", "tipo", "dni", "correo", "clave", "nSeguridadSocial", "titulo")'>AÑADIR Usuario</button>
+
+  </div>
+
+
+
+
+
+</ion-content>

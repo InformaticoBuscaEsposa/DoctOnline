@@ -7,26 +7,25 @@
 </ion-header>
 
 <ion-content style="background-color: rgb(195, 195, 195)">
+  <!-- Cabecera -->
   <header>
     <img src="../assets/icon/logoDoctOnline.jpg" style="width:70px;height:45px;" class="logo">
     <h3 class="titulo">DOCTONLINE</h3>
     <img src="../assets/imgs/imgUsuario.png" style="width:60px;height:50px;" class="imgUsuario">
   </header>
 
+  <!-- Lista de diagnosticos -->
   <div id="diagnosticos">
     <img src="../assets/imgs/botonPedirDiagnostico.png" style="width:130px;height:50px;" id="botonPedirDiagnostico">
     <h5>Diagnósticos</h5>
-
 
   </div>
 
 
 
 
-  <button ion-button (click)="addCliente2()">AÑADIR</button>
 
-
-
+  <button ion-button (click)='addUsuario("nombre", "apellidos", "tipo", "dni", "correo", "clave", "nSeguridadSocial", "titulo")'>AÑADIR Usuario</button>
   <p *ngFor="let cliente of listaClientes ">
 	<button small ion-button (click)="delCliente([cliente.id])">-</button>
 	<button small ion-button (click)="updateCliente([cliente.id])">u</button>

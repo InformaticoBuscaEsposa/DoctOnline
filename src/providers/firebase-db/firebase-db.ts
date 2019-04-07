@@ -1,7 +1,7 @@
 //import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase} from 'angularfire2/database';
-import {Cliente} from '../../models/cliente.model';
+import {Usuario} from '../../models/usuario.model';
 
 /*
   Generated class for the FirebaseDbProvider provider.
@@ -15,24 +15,23 @@ export class FirebaseDbProvider {
   constructor(public afDB:AngularFireDatabase) {
     console.log('Hello FirebaseDbProvider Provider');
   }
-  
-  guardaCliente(cliente:Cliente)
+
+  guardaUsuario(usuario:Usuario)
   {
-	  if (cliente.id=='') {cliente.id=""+Date.now();}
-	  return this.afDB.database.ref('clientes/'+cliente.id).set(cliente);
+	  return this.afDB.database.ref('Usuarios/'+usuario.dni).set(usuario);
   }
-  
-  private clientesRef=this.afDB.list<Cliente>('clientes');
-  
-  getClientes()
+
+  private UsuariosRef=this.afDB.list<Usuario>('Usuarios');
+
+  getUsuarios()
   {
-        return this.clientesRef.valueChanges();
-  } 
-  
-  delCliente(id)
-  {
-	  this.afDB.database.ref('clientes/'+id).remove();
+        return this.UsuariosRef.valueChanges();
   }
-  
+
+  delUsuario(dni)
+  {
+	  this.afDB.database.ref('Usuarios/'+dni).remove();
+  }
+
 
 }

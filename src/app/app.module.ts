@@ -7,10 +7,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { EntradaPage } from '../pages/entrada/entrada';
 import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
+
+//Importar paginas
+import { InicioSesionPageModule } from '../pages/inicioSesion/inicioSesion.module'
+import { RegistroPageModule } from '../pages/registro/registro.module'
+import { HomePageModule } from '../pages/home/home.module'
 
 export const fireBaseConfig={
 	apiKey: "AIzaSyDR98UZlU2UdyEIxE_Xj_gMnei7AifCduU",
@@ -24,17 +28,20 @@ export const fireBaseConfig={
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    EntradaPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-	AngularFireModule.initializeApp(fireBaseConfig),AngularFireDatabaseModule
+		InicioSesionPageModule,
+		RegistroPageModule,
+		HomePageModule,
+		AngularFireModule.initializeApp(fireBaseConfig),AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    EntradaPage
   ],
   providers: [
     StatusBar,

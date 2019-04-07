@@ -1,0 +1,39 @@
+header{
+  background-color: rgb(0, 102, 54);
+  border: 2px solid black;
+
+}
+
+header .logo{
+  float:left;
+  cursor: pointer;
+}
+
+header .titulo{
+  display: inline-block;
+  color: white;
+  margin-top: 10px;
+  padding: 1%;
+  cursor: pointer;
+}
+
+header .imgUsuario{
+  float: right;
+  cursor: pointer;
+}
+
+#cuadroEntrada{
+  background-color: rgb(132, 240, 43);
+  margin: 2%;
+  border: 2px solid black;
+  border-radius: 2px;
+  text-align: center;
+  margin-top: 20%;
+}
+
+.botonInicio{
+  padding: 10%;
+  background-color: white;
+  color: black;
+  margin: 7%;
+}

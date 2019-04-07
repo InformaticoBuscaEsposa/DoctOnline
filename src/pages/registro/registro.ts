@@ -4,10 +4,10 @@ import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 import {Usuario} from '../../models/usuario.model';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-registro',
+  templateUrl: 'registro.html'
 })
-export class HomePage {
+export class RegistroPage {
 
   listaUsuarios:any;
 

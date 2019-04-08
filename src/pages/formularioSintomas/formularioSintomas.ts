@@ -5,10 +5,10 @@ import {Usuario} from '../../models/usuario.model';
 import {Diagnostico} from '../../models/diagnostico.model';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-formularioSintomas',
+  templateUrl: 'formularioSintomas.html'
 })
-export class HomePage {
+export class FormularioSintomasPage {
 
   //Sobre usuarios
   listaUsuarios:any;

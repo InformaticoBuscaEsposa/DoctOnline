@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase} from 'angularfire2/database';
 import {Usuario} from '../../models/usuario.model';
+import {Diagnostico} from '../../models/diagnostico.model';
 
 /*
   Generated class for the FirebaseDbProvider provider.
@@ -16,6 +17,7 @@ export class FirebaseDbProvider {
     console.log('Hello FirebaseDbProvider Provider');
   }
 
+  //Sobre el usuario
   guardaUsuario(usuario:Usuario)
   {
 	  return this.afDB.database.ref('Usuarios/'+usuario.dni).set(usuario);
@@ -33,5 +35,17 @@ export class FirebaseDbProvider {
 	  this.afDB.database.ref('Usuarios/'+dni).remove();
   }
 
+  //Sobre el diagnostico
+  guardaDiagnostico(diagnostico:Diagnostico)
+  {
+	  return this.afDB.database.ref('Diagnostico/'+diagnostico.paciente + '/' + diagnostico.id).set(diagnostico);
+  }
 
-}
+  private DiagnosticosRef=this.afDB.list<Diagnostico>('Diagnosticos');
+
+  getDiagnosticos()
+  {
+        return this.DiagnosticosRef.valueChanges();
+  }
+
+} 

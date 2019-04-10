@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 import {Usuario} from '../../models/usuario.model';
+import {HomePage} from '../home/home';
 
 @Component({
   selector: 'page-inicioSesion',
@@ -15,34 +16,6 @@ export class InicioSesionPage {
 
   }
 
-  addUsuario(nombre, apellidos, tipo, dni, correo, clave, nSeguridadSocial, titulo)
-  {
-		let datosUsuario:Usuario=new Usuario();
-
-		datosUsuario.nombre=nombre;
-		datosUsuario.apellidos=apellidos;
-    datosUsuario.tipo=tipo;
-    datosUsuario.dni=dni;
-    datosUsuario.correo=correo;
-    datosUsuario.clave=clave;
-    datosUsuario.nSeguridadSocial=nSeguridadSocial;
-    datosUsuario.titulo=titulo;
-
-		this.dbFirebase.guardaUsuario(datosUsuario).then(res=>{
-			alert(datosUsuario.dni+ " guardado en FB");
-		});
-
-  }
-
-  updateUsuario(dni)
-  {
-	  let datosUsuario:Usuario=new Usuario();
-	  datosUsuario.dni=dni;
-	  datosUsuario.nombre="Maria";
-	  datosUsuario.apellidos="de las mercedes";
-
-	  this.dbFirebase.guardaUsuario(datosUsuario);
-  }
 
   ionViewDidEnter()
   {
@@ -54,4 +27,7 @@ export class InicioSesionPage {
 	  this.dbFirebase.delUsuario(dni);
   }
 
+  irPaginaHome():void {
+    this.navCtrl.push(HomePage);
+  }
 }

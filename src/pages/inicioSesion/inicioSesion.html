@@ -23,7 +23,14 @@
     <button small ion-button (click)="updateCliente([cliente.id])">u</button>
     {{cliente.nombre}}  {{cliente.apellidos}}
     </p>
-    <button ion-button (click)='addUsuario("nombre", "apellidos", "tipo", "dni", "correo", "clave", "nSeguridadSocial", "titulo")'>AÑADIR Usuario</button>
+    <div class="FormInicioSesion">
+      <h2 class="TituloRegistro"> INICIO DE SESIÓN </h2>
+      <form class="cuadro">
+          <input class="InicioSesion" id="Usuario" type="text" placeholder="Usuario" required>
+          <input class="InicioSesion" id="Contraseña" type="password" placeholder="Contraseña" required>
+      </form>
+      <button class="IS-submit" ion-button (click)='irPaginaHome()'>INICIAR SESIÓN</button>
+    </div>
 
   </div>
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 import {Usuario} from '../../models/usuario.model';
+import {EntradaPage} from '../entrada/entrada';
 
 @Component({
   selector: 'page-registro',
@@ -15,43 +16,47 @@ export class RegistroPage {
 
   }
 
-  addUsuario(nombre, apellidos, tipo, dni, correo, clave, nSeguridadSocial, titulo)
+  addUsuario(user,nombre, apellidos, tipo, email, nacionalidad, CP, direccion, SS,)
   {
 		let datosUsuario:Usuario=new Usuario();
 
+    datosUsuario.user =user;
 		datosUsuario.nombre=nombre;
 		datosUsuario.apellidos=apellidos;
-    datosUsuario.tipo=tipo;
-    datosUsuario.dni=dni;
-    datosUsuario.correo=correo;
-    datosUsuario.clave=clave;
-    datosUsuario.nSeguridadSocial=nSeguridadSocial;
-    datosUsuario.titulo=titulo;
+    datosUsuario.email=email;
+    datosUsuario.nacionalidad=nacionalidad;
+    datosUsuario.CodPostal=CP;
+    datosUsuario.direccion=direccion;
+    datosUsuario.SegSocial=SS;
 
 		this.dbFirebase.guardaUsuario(datosUsuario).then(res=>{
-			alert(datosUsuario.dni+ " guardado en FB");
+			alert(datosUsuario.SegSocial+ " guardado en FB");
 		});
 
   }
 
-  updateUsuario(dni)
+  updateUsuario(SS)
   {
 	  let datosUsuario:Usuario=new Usuario();
-	  datosUsuario.dni=dni;
+	  datosUsuario.SegSocial=SS;
 	  datosUsuario.nombre="Maria";
 	  datosUsuario.apellidos="de las mercedes";
 
 	  this.dbFirebase.guardaUsuario(datosUsuario);
   }
 
-  ionViewDidEnter()
+  ionViewDidEnterUsuarios()
   {
 	  this.dbFirebase.getUsuarios().subscribe(listaUsuarios=>{this.listaUsuarios=listaUsuarios;});
   }
 
-  delUsuario(dni)
+  delUsuario(SS)
   {
-	  this.dbFirebase.delUsuario(dni);
+	  this.dbFirebase.delUsuario(SS);
+  }
+
+  irPaginaEntrada():void {
+    this.navCtrl.push(EntradaPage);
   }
 
 }

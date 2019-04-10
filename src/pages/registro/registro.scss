@@ -28,3 +28,82 @@ header .imgUsuario{
   border: 2px solid black;
   border-radius: 2px;
 }
+
+div.registro{
+  background-color: rgb(132, 240, 43);
+  width:100%;
+  margin-top: 2%;
+  margin-bottom: 2%; 
+  padding: 1%;
+  text-align:center;
+}
+
+h2.TituloRegistro{
+  margin-top:0;
+  font-size: 16px;
+  color: rgb(37, 101, 221);
+  text-align: center;
+}
+
+fieldset{
+  padding-top: 1.5%;
+}
+
+fieldset.cuadro{
+  background-color: rgb(236, 230, 140);
+  margin-bottom: 5%;
+}
+
+fieldset.fieldset-condiciones{
+  padding: 1% 0;
+  background-color:  rgb(236, 230, 140);
+  margin-bottom: 5%;
+}
+
+label.label-registro{
+  float: left;
+  margin-left: 4%;
+}
+
+input.formL{
+  width: 45%;
+  height: 25px;
+  float:left;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 1%;
+}
+
+input.formR{
+  width: 45%;
+  height: 25px;
+  float:right;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 1%;
+}
+
+input.formR[type="file"]{
+  float: left;
+  width: 25%;
+  margin-left: 1%;
+}
+
+input.input-condiciones{
+  margin-top: 0;
+  width: 5%;
+}
+
+input.registro-submit{
+  float: left;
+  color: white; 
+  background-color: rgb(0, 153, 255);
+  border: solid blue;
+  width: 40%;
+  height: 50px;
+  text-align: center;
+  margin-top: 2%;
+  cursor: pointer;
+}
+
+

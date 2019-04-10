@@ -17,29 +17,11 @@ export class HomePage {
 
   }
 
-  addUsuario(nombre, apellidos, tipo, dni, correo, clave, nSeguridadSocial, titulo)
-  {
-		let datosUsuario:Usuario=new Usuario();
 
-		datosUsuario.nombre=nombre;
-		datosUsuario.apellidos=apellidos;
-    datosUsuario.tipo=tipo;
-    datosUsuario.dni=dni;
-    datosUsuario.correo=correo;
-    datosUsuario.clave=clave;
-    datosUsuario.nSeguridadSocial=nSeguridadSocial;
-    datosUsuario.titulo=titulo;
-
-		this.dbFirebase.guardaUsuario(datosUsuario).then(res=>{
-			alert(datosUsuario.dni+ " guardado en FB");
-		});
-
-  }
-
-  updateUsuario(dni)
+  updateUsuario(SS)
   {
 	  let datosUsuario:Usuario=new Usuario();
-	  datosUsuario.dni=dni;
+	  datosUsuario.SegSocial=SS;
 	  datosUsuario.nombre="Maria";
 	  datosUsuario.apellidos="de las mercedes";
 
@@ -51,9 +33,9 @@ export class HomePage {
 	  this.dbFirebase.getUsuarios().subscribe(listaUsuarios=>{this.listaUsuarios=listaUsuarios;});
   }
 
-  delUsuario(dni)
+  delUsuario(SS)
   {
-	  this.dbFirebase.delUsuario(dni);
+	  this.dbFirebase.delUsuario(SS);
   }
 
 

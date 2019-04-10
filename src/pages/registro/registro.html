@@ -17,13 +17,48 @@
   <!-- Formulario de registo -->
   <div id="formularioRegistro">
 
-
     <p *ngFor="let cliente of listaClientes ">
     <button small ion-button (click)="delCliente([cliente.id])">-</button>
     <button small ion-button (click)="updateCliente([cliente.id])">u</button>
     {{cliente.nombre}}  {{cliente.apellidos}}
     </p>
-    <button ion-button (click)='addUsuario("nombre", "apellidos", "tipo", "dni", "correo", "clave", "nSeguridadSocial", "titulo")'>AÑADIR Usuario</button>
+
+    <div class="registro">
+      <h2 class="TituloRegistro"> INFORMACIÓN DE CUENTA </h2>
+      <form>
+          <fieldset class="cuadro">
+              <input class="formL" id="User" type="text" placeholder="Usuario" required>
+              <input class="formR" id="Pass" type = "password" placeholder="Contraseña" maxlength="16" pattern="[a-zA-Z0-9]+" required>
+              <input class="formL" id="RepPass" type = "password" placeholder="Repetir contraseña" maxlength="16" pattern="[a-zA-Z0-9]+" required>
+              <label class="label-registro">Imagen de perfil: </label>
+              <input class="formR" id="Foto" type="file" accept="image/*" required>
+          </fieldset>
+
+          <h2 class="TituloRegistro"> INFORMACIÓN PERSONAL </h2>
+
+          <fieldset class="cuadro">
+              <input class="formL" id="Nom" type="text" placeholder="Nombre" required>
+              <input class="formR" id="Ape" type="text" placeholder="Apellidos" required>
+              <input class="formL" id="Email" type = "email" placeholder="Email" required>
+              <input class="formR" id="FNac" type = "date" required>
+              <input class="formL" id="Nac" type="text" placeholder="Nacionalidad" required>
+              <input class="formR" id="CP" type="text" placeholder="Código Postal" required>
+              <input class="formL" id="Dir" type="text" placeholder="Dirección" required>
+              <input class="formR" id="SS" type="text" placeholder="Número Seguridad Social" required>
+          </fieldset>
+
+          <h2 class="TituloRegistro"> CONDICIONES DE USO </h2>
+
+          <fieldset class="fieldset-condiciones">
+              <input class="input-condiciones" type="checkbox" name="condiciones" required> He leído y acepto las Condiciones de uso
+          </fieldset>
+
+          <button class="registro-submit" ion-button (click)='irPaginaEntrada()' ion-button (click)='addUsuario("user,nombre, apellidos, tipo, SS, email, nacionalidad, CP, direccion")'>AÑADIR USUARIO</button>
+      </form>
+
+     
+
+  </div>
 
   </div>
 

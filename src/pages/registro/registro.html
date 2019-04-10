@@ -30,8 +30,12 @@
               <input class="formL" id="User" type="text" placeholder="Usuario" required>
               <input class="formR" id="Pass" type = "password" placeholder="Contraseña" maxlength="16" pattern="[a-zA-Z0-9]+" required>
               <input class="formL" id="RepPass" type = "password" placeholder="Repetir contraseña" maxlength="16" pattern="[a-zA-Z0-9]+" required>
-              <label class="label-registro">Imagen de perfil: </label>
-              <input class="formR" id="Foto" type="file" accept="image/*" required>
+              <select class="formR" name="Tipo">
+                <option value="PAC" selected>Paciente</option>
+                <option value="DCT" >Doctor</option>
+            </select>
+            <label class="label-registro">Imagen de perfil: </label>
+            <input id="Foto" type="file" accept="image/*" >
           </fieldset>
 
           <h2 class="TituloRegistro"> INFORMACIÓN PERSONAL </h2>
@@ -53,7 +57,7 @@
               <input class="input-condiciones" type="checkbox" name="condiciones" required> He leído y acepto las Condiciones de uso
           </fieldset>
 
-          <button class="registro-submit" ion-button (click)='irPaginaEntrada()' ion-button (click)='addUsuario("user,nombre, apellidos, tipo, SS, email, nacionalidad, CP, direccion")'>AÑADIR USUARIO</button>
+          <button class="registro-submit" ion-button (click)='irPaginaEntrada()' ion-button (click)='addUsuario("user, tipo, nombre, apellidos, email, nacionalidad, CodPostal, direccion, SegSocial")'>AÑADIR USUARIO</button>
       </form>
 
      

@@ -16,11 +16,12 @@ export class RegistroPage {
 
   }
 
-  addUsuario(user,nombre, apellidos, tipo, email, nacionalidad, CP, direccion, SS,)
+  addUsuario(user:string ,tipo:boolean, nombre:string, apellidos:string, email:string, nacionalidad:string, CP:number, direccion:string, SS:number)
   {
 		let datosUsuario:Usuario=new Usuario();
 
     datosUsuario.user =user;
+    datosUsuario.tipo=tipo;
 		datosUsuario.nombre=nombre;
 		datosUsuario.apellidos=apellidos;
     datosUsuario.email=email;

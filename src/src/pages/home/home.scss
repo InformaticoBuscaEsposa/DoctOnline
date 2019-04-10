@@ -1,0 +1,40 @@
+header{
+  background-color: rgb(0, 102, 54);
+  border: 2px solid black;
+
+}
+
+header .logo{
+  float:left;
+  cursor: pointer;
+}
+
+header .titulo{
+  display: inline-block;
+  color: white;
+  margin-top: 10px;
+  padding: 1%;
+  cursor: pointer;
+}
+
+header .imgUsuario{
+  float: right;
+  cursor: pointer;
+}
+
+#diagnosticos{
+  background-color: rgb(132, 240, 43);
+  margin: 2%;
+  border: 2px solid black;
+  border-radius: 2px;
+}
+
+#diagnosticos h5{
+  padding-left: 3%;
+}
+
+#diagnosticos #botonPedirDiagnostico{
+  float: right;
+  padding: 2%;
+  cursor: pointer;
+}

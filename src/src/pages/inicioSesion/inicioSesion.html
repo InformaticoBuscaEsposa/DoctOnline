@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color: rgb(195, 195, 195)">
+  <!-- Cabecera -->
+  <header>
+    <img src="../assets/icon/logoDoctOnline.jpg" style="width:70px;height:45px;" class="logo">
+    <h3 class="titulo">DOCTONLINE</h3>
+    <img src="../assets/imgs/imgUsuario.png" style="width:60px;height:50px;" class="imgUsuario">
+  </header>
+
+  <!-- Formulario de inicio de sesión -->
+  <div id="formularioInicioSesion">
+
+
+    <p *ngFor="let cliente of listaClientes ">
+    <button small ion-button (click)="delCliente([cliente.id])">-</button>
+    <button small ion-button (click)="updateCliente([cliente.id])">u</button>
+    {{cliente.nombre}}  {{cliente.apellidos}}
+    </p>
+    <div class="FormInicioSesion">
+      <h2 class="TituloRegistro"> INICIO DE SESIÓN </h2>
+      <form class="cuadro">
+          <input class="InicioSesion" id="Usuario" type="text" placeholder="Usuario" required>
+          <input class="InicioSesion" id="Contraseña" type="password" placeholder="Contraseña" required>
+      </form>
+      <button class="IS-submit" ion-button (click)='irPaginaHome()'>INICIAR SESIÓN</button>
+    </div>
+
+  </div>
+
+
+
+
+
+</ion-content>

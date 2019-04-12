@@ -1,7 +1,8 @@
 export class Usuario {
 
 	public user: string;
-	public tipo: boolean; //0 paciente y 1 doctor//
+	public contraseña: string;
+	public tipo: boolean; //false paciente y true doctor//
   public nombre: string;
   public apellidos: string;
   public email: string;
@@ -9,10 +10,10 @@ export class Usuario {
 	public CodPostal: number;
 	public direccion: string;
 	public SegSocial: number;
-	
+
 	constructor()
 	{
-		this.SegSocial=0;
+		this.user="";
 	}
 
 }

@@ -17,43 +17,15 @@ export class FormularioSintomasPage {
 
   }
 
-  addUsuario(nombre, apellidos, tipo, dni, correo, clave, nSeguridadSocial, titulo)
-  {
-		let datosUsuario:Usuario=new Usuario();
-
-		datosUsuario.nombre=nombre;
-		datosUsuario.apellidos=apellidos;
-    datosUsuario.tipo=tipo;
-    datosUsuario.dni=dni;
-    datosUsuario.correo=correo;
-    datosUsuario.clave=clave;
-    datosUsuario.nSeguridadSocial=nSeguridadSocial;
-    datosUsuario.titulo=titulo;
-
-		this.dbFirebase.guardaUsuario(datosUsuario).then(res=>{
-			alert(datosUsuario.dni+ " guardado en FB");
-		});
-
-  }
-
-  updateUsuario(dni)
-  {
-	  let datosUsuario:Usuario=new Usuario();
-	  datosUsuario.dni=dni;
-	  datosUsuario.nombre="Maria";
-	  datosUsuario.apellidos="de las mercedes";
-
-	  this.dbFirebase.guardaUsuario(datosUsuario);
-  }
 
   ionViewDidEnterUsuarios()
   {
 	  this.dbFirebase.getUsuarios().subscribe(listaUsuarios=>{this.listaUsuarios=listaUsuarios;});
   }
 
-  delUsuario(dni)
+  delUsuario(user)
   {
-	  this.dbFirebase.delUsuario(dni);
+	  this.dbFirebase.delUsuario(user);
   }
 
 
@@ -72,7 +44,7 @@ export class FormularioSintomasPage {
     datosDiagnostico.id=id;
 
     this.dbFirebase.guardaDiagnostico(datosDiagnostico).then(res=>{
-      alert(datosDiagnostico.paciente + " con id " + datosDiagnostico.id + " guardado en FB");
+      alert(" Diagnostico de " + datosDiagnostico.paciente + " con id " + datosDiagnostico.id + " guardado en FB");
     });
 
   }
@@ -81,5 +53,19 @@ export class FormularioSintomasPage {
   {
     this.dbFirebase.getDiagnosticos().subscribe(listaDiagnosticos=>{this.listaDiagnosticos=listaDiagnosticos;});
   }
+
+  //Funcion para enviar formulario de sintomas
+  enviarFormulario():void{
+    var x = document.forms["formularioPeticion"]["descripcionSintomas"].value;
+    if (x == "") {
+      alert("Debes escribir una descripción a tus síntomas");
+      return;
+    }
+    var f = new Date();
+    var fechaActual = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+    this.addDiagnostico("paciente", "Aún sin asignar", fechaActual, x, "Aún sin diagnosticar", "X");
+    return;
+  }
+
 
 }

@@ -19,18 +19,14 @@
     <img src="../assets/imgs/botonPedirDiagnostico.png" style="width:130px;height:50px;" id="botonPedirDiagnostico">
     <h5>Diagnósticos</h5>
 
+    <p *ngFor="let item of listaDiagnosticos ">
+    	<!-- <button small ion-button (click)="delDiagnostico([Diagnostico.id])">-</button> -->
+      {{item.fecha}}
+    </p>
+
   </div>
 
 
-
-
-
-  <button ion-button (click)='addUsuario("nombre", "apellidos", "tipo", "dni", "correo", "clave", "nSeguridadSocial", "titulo")'>AÑADIR Usuario</button>
-  <p *ngFor="let cliente of listaClientes ">
-	<button small ion-button (click)="delCliente([cliente.id])">-</button>
-	<button small ion-button (click)="updateCliente([cliente.id])">u</button>
-	{{cliente.nombre}}  {{cliente.apellidos}}
-  </p>
 
 
 </ion-content>

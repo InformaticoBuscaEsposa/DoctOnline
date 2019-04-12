@@ -20,7 +20,7 @@ export class FirebaseDbProvider {
   //Sobre el usuario
   guardaUsuario(usuario:Usuario)
   {
-	  return this.afDB.database.ref('Usuarios/'+usuario.dni).set(usuario);
+	  return this.afDB.database.ref('Usuarios/'+usuario.user).set(usuario);
   }
 
   private UsuariosRef=this.afDB.list<Usuario>('Usuarios');
@@ -30,9 +30,9 @@ export class FirebaseDbProvider {
         return this.UsuariosRef.valueChanges();
   }
 
-  delUsuario(dni)
+  delUsuario(user)
   {
-	  this.afDB.database.ref('Usuarios/'+dni).remove();
+	  this.afDB.database.ref('Usuarios/'+user).remove();
   }
 
   //Sobre el diagnostico
@@ -41,11 +41,12 @@ export class FirebaseDbProvider {
 	  return this.afDB.database.ref('Diagnostico/'+diagnostico.paciente + '/' + diagnostico.id).set(diagnostico);
   }
 
-  private DiagnosticosRef=this.afDB.list<Diagnostico>('Diagnosticos');
+  private DiagnosticosRef=this.afDB.list<Diagnostico>('Diagnostico');
 
   getDiagnosticos()
   {
         return this.DiagnosticosRef.valueChanges();
   }
 
-} 
+
+}

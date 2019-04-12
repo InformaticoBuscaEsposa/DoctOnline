@@ -27,10 +27,18 @@ header .imgUsuario{
   margin: 2%;
   border: 2px solid black;
   border-radius: 2px;
+  text-align: center;
 }
 
 #formularioPeticion h5{
   padding-left: 3%;
+}
+
+#descripcionSintomas{
+  margin: 5%;
+  border: 2px solid black;
+  border-radius: 2px;
+
 }
 
 .botonEnviarSintomas{

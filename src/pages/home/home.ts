@@ -18,24 +18,14 @@ export class HomePage {
   }
 
 
-  updateUsuario(SS)
-  {
-	  let datosUsuario:Usuario=new Usuario();
-	  datosUsuario.SegSocial=SS;
-	  datosUsuario.nombre="Maria";
-	  datosUsuario.apellidos="de las mercedes";
-
-	  this.dbFirebase.guardaUsuario(datosUsuario);
-  }
-
   ionViewDidEnterUsuarios()
   {
 	  this.dbFirebase.getUsuarios().subscribe(listaUsuarios=>{this.listaUsuarios=listaUsuarios;});
   }
 
-  delUsuario(SS)
+  delUsuario(user)
   {
-	  this.dbFirebase.delUsuario(SS);
+	  this.dbFirebase.delUsuario(user);
   }
 
 
@@ -63,5 +53,6 @@ export class HomePage {
   {
     this.dbFirebase.getDiagnosticos().subscribe(listaDiagnosticos=>{this.listaDiagnosticos=listaDiagnosticos;});
   }
+
 
 }

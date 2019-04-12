@@ -11,7 +11,7 @@
   <header>
     <img src="../assets/icon/logoDoctOnline.jpg" style="width:70px;height:45px;" class="logo">
     <h3 class="titulo">DOCTONLINE</h3>
-    <img src="../assets/imgs/imgUsuario.png" style="width:60px;height:50px;" class="imgUsuario">
+    <img src="../assets/imgs/imgUsuarioDesconocido.png" style="width:60px;height:50px;" class="imgUsuario">
   </header>
 
   <!-- Formulario de registo -->
@@ -23,9 +23,9 @@
     {{cliente.nombre}}  {{cliente.apellidos}}
     </p>
 
-    <div class="registro">
+    <form id="registro">
       <h2 class="TituloRegistro"> INFORMACIÓN DE CUENTA </h2>
-      <form>
+
           <fieldset class="cuadro">
               <input class="formL" id="User" type="text" placeholder="Usuario" required>
               <input class="formR" id="Pass" type = "password" placeholder="Contraseña" maxlength="16" pattern="[a-zA-Z0-9]+" required>
@@ -34,8 +34,6 @@
                 <option value="PAC" selected>Paciente</option>
                 <option value="DCT" >Doctor</option>
             </select>
-            <label class="label-registro">Imagen de perfil: </label>
-            <input id="Foto" type="file" accept="image/*" >
           </fieldset>
 
           <h2 class="TituloRegistro"> INFORMACIÓN PERSONAL </h2>
@@ -57,12 +55,9 @@
               <input class="input-condiciones" type="checkbox" name="condiciones" required> He leído y acepto las Condiciones de uso
           </fieldset>
 
-          <button class="registro-submit" ion-button (click)='irPaginaEntrada()' ion-button (click)='addUsuario("user, tipo, nombre, apellidos, email, nacionalidad, CodPostal, direccion, SegSocial")'>AÑADIR USUARIO</button>
-      </form>
+          <button class="registro-submit" ion-button (click)='enviarFormularioRegistro()'>REGISTRARSE</button>
 
-     
-
-  </div>
+  </form>
 
   </div>
 

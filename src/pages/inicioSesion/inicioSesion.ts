@@ -22,9 +22,9 @@ export class InicioSesionPage {
 	  this.dbFirebase.getUsuarios().subscribe(listaUsuarios=>{this.listaUsuarios=listaUsuarios;});
   }
 
-  delUsuario(dni)
+  delUsuario(user)
   {
-	  this.dbFirebase.delUsuario(dni);
+	  this.dbFirebase.delUsuario(user);
   }
 
   irPaginaHome():void {

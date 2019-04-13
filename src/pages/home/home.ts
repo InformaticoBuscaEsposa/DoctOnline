@@ -49,9 +49,16 @@ export class HomePage {
 
   }
 
+  delDiagnostico(paciente, id)
+  {
+	  this.dbFirebase.delDiagnostico(paciente, id);
+  }
+
   ionViewDidEnterDiagnosticos()
   {
+    alert(this.listaDiagnosticos);
     this.dbFirebase.getDiagnosticos().subscribe(listaDiagnosticos=>{this.listaDiagnosticos=listaDiagnosticos;});
+    alert(this.listaDiagnosticos);
   }
 
 

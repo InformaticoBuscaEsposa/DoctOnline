@@ -19,9 +19,16 @@
     <img src="../assets/imgs/botonPedirDiagnostico.png" style="width:130px;height:50px;" id="botonPedirDiagnostico">
     <h5>Diagnósticos</h5>
 
-    <p *ngFor="let item of listaDiagnosticos ">
-    	<!-- <button small ion-button (click)="delDiagnostico([Diagnostico.id])">-</button> -->
-      {{item.fecha}}
+    <button ion-button (click)='ionViewDidEnterDiagnosticos()' >Botón mágico Diagnosticos</button>
+    <button ion-button (click)='ionViewDidEnterUsuarios()' >Botón mágico Usuarios</button>
+
+    <p *ngFor="let item of listaDiagnosticos; let indice=index">
+      {{indice}} {{item.id}} {{item.doctor}} {{item[doctor]}}
+    </p>
+
+    <p *ngFor="let item of listaUsuarios ">
+    	<button small ion-button (click)="delUsuario([item.user])">Borrar usuario</button>
+      {{item.user}} {{item.nombre}}
     </p>
 
   </div>

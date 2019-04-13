@@ -20,7 +20,7 @@ export class RegistroPage {
   {
 		let datosUsuario:Usuario=new Usuario();
 
-    datosUsuario.user =user;
+    datosUsuario.user=user;
     datosUsuario.tipo=tipo;
 		datosUsuario.nombre=nombre;
 		datosUsuario.apellidos=apellidos;
@@ -48,12 +48,13 @@ export class RegistroPage {
 	  this.dbFirebase.delUsuario(SS);
   }
 
-  irPaginaEntrada():void {
-    this.navCtrl.push(EntradaPage);
+  volverPaginaEntrada():void {
+    this.navCtrl.pop();
   }
 
   enviarFormularioRegistro():void{
     var usuario = document.forms["registro"]["User"].value;
+    alert("Hemos entrado al envio de" + usuario);
     if (usuario == "") {
       alert("Debes escribir tu nombre de usuario");
       return;

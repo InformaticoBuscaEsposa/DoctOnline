@@ -54,6 +54,7 @@ export class FormularioSintomasPage {
     this.dbFirebase.getDiagnosticos().subscribe(listaDiagnosticos=>{this.listaDiagnosticos=listaDiagnosticos;});
   }
 
+
   //Funcion para enviar formulario de sintomas
   enviarFormulario():void{
     var x = document.forms["formularioPeticion"]["descripcionSintomas"].value;
@@ -63,7 +64,7 @@ export class FormularioSintomasPage {
     }
     var f = new Date();
     var fechaActual = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
-    this.addDiagnostico("paciente", "Aún sin asignar", fechaActual, x, "Aún sin diagnosticar", "X");
+    this.addDiagnostico("paciente2", "Aún sin asignar", fechaActual, x, "Aún sin diagnosticar", "X");
     return;
   }
 

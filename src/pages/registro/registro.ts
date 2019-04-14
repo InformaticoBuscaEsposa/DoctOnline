@@ -16,11 +16,12 @@ export class RegistroPage {
 
   }
 
-  addUsuario(user:string ,tipo:boolean, nombre:string, apellidos:string, email:string, nacionalidad:string, CP:number, direccion:string, SS:number)
+  addUsuario(user:string ,contraseña:string ,tipo:boolean, nombre:string, apellidos:string, email:string, nacionalidad:string, CP:number, direccion:string, SS:number)
   {
 		let datosUsuario:Usuario=new Usuario();
 
     datosUsuario.user=user;
+    datosUsuario.contraseña=contraseña;
     datosUsuario.tipo=tipo;
 		datosUsuario.nombre=nombre;
 		datosUsuario.apellidos=apellidos;
@@ -54,7 +55,6 @@ export class RegistroPage {
 
   enviarFormularioRegistro():void{
     var usuario = document.forms["registro"]["User"].value;
-    alert("Hemos entrado al envio de" + usuario);
     if (usuario == "") {
       alert("Debes escribir tu nombre de usuario");
       return;
@@ -80,9 +80,9 @@ export class RegistroPage {
     var codigoPostal = document.forms["registro"]["CP"].value;
     var direccion = document.forms["registro"]["Dir"].value;
     var seguridadSocial = document.forms["registro"]["SS"].value;
-    this.addUsuario(usuario, tipo, nombre, apellido, correo, nacionalidad, codigoPostal, direccion, seguridadSocial);
+    this.addUsuario(usuario, contraseña, tipo, nombre, apellido, correo, nacionalidad, codigoPostal, direccion, seguridadSocial);
     alert("Te has registrado con éxito")
-    this.irPaginaEntrada();
+    this.volverPaginaEntrada();
     return;
   }
 

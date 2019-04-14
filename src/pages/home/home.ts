@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 import {Usuario} from '../../models/usuario.model';
 import {Diagnostico} from '../../models/diagnostico.model';
+import {FormularioSintomasPage} from '../formularioSintomas/formularioSintomas';
 
 @Component({
   selector: 'page-home',
@@ -12,9 +13,9 @@ export class HomePage {
 
   //Sobre usuarios
   listaUsuarios:any;
-
-  constructor(public navCtrl: NavController,public dbFirebase:FirebaseDbProvider) {
-
+  nombre = '';
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider) {
+    this.nombre = navParams.get('nombre');
   }
 
 
@@ -32,34 +33,13 @@ export class HomePage {
   //Sobre diagnosticos
   listaDiagnosticos:any;
 
-  addDiagnostico(paciente, doctor, fecha, sintoma, diagnostico, id)
+  ionViewDidEnter()
   {
-    let datosDiagnostico:Diagnostico=new Diagnostico();
-
-    datosDiagnostico.paciente=paciente;
-    datosDiagnostico.doctor=doctor;
-    datosDiagnostico.fecha=fecha;
-    datosDiagnostico.sintoma=sintoma;
-    datosDiagnostico.diagnostico=diagnostico;
-    datosDiagnostico.id=id;
-
-    this.dbFirebase.guardaDiagnostico(datosDiagnostico).then(res=>{
-      alert(datosDiagnostico.paciente + " con id " + datosDiagnostico.id + " guardado en FB");
-    });
-
+    this.dbFirebase.getDiagnosticos(this.nombre).subscribe(listaDiagnosticos=>{this.listaDiagnosticos=listaDiagnosticos;});
   }
 
-  delDiagnostico(paciente, id)
-  {
-	  this.dbFirebase.delDiagnostico(paciente, id);
+  irPaginaCrearDiagnostico(){
+    this.navCtrl.push(FormularioSintomasPage, {nombre:this.nombre});
   }
-
-  ionViewDidEnterDiagnosticos()
-  {
-    alert(this.listaDiagnosticos);
-    this.dbFirebase.getDiagnosticos().subscribe(listaDiagnosticos=>{this.listaDiagnosticos=listaDiagnosticos;});
-    alert(this.listaDiagnosticos);
-  }
-
 
 }

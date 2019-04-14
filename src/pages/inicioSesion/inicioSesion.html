@@ -17,19 +17,13 @@
   <!-- Formulario de inicio de sesión -->
   <div id="formularioInicioSesion">
 
-
-    <p *ngFor="let cliente of listaClientes ">
-    <button small ion-button (click)="delCliente([cliente.id])">-</button>
-    <button small ion-button (click)="updateCliente([cliente.id])">u</button>
-    {{cliente.nombre}}  {{cliente.apellidos}}
-    </p>
     <div class="FormInicioSesion">
       <h2 class="TituloRegistro"> INICIO DE SESIÓN </h2>
-      <form class="cuadro">
+      <form id="cuadro">
           <input class="InicioSesion" id="Usuario" type="text" placeholder="Usuario" required>
           <input class="InicioSesion" id="Contraseña" type="password" placeholder="Contraseña" required>
       </form>
-      <button class="IS-submit" ion-button (click)='irPaginaHome()'>INICIAR SESIÓN</button>
+      <button class="IS-submit" ion-button (click)='enviarFormularioInicioSesion()'>INICIAR SESIÓN</button>
     </div>
 
   </div>

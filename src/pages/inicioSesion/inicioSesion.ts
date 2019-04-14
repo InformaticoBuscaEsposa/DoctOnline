@@ -27,7 +27,25 @@ export class InicioSesionPage {
 	  this.dbFirebase.delUsuario(user);
   }
 
-  irPaginaHome():void {
-    this.navCtrl.push(HomePage);
+
+  enviarFormularioInicioSesion():void{
+    var nombreUsuario = document.forms["cuadro"]["Usuario"].value;
+    var contraseña = document.forms["cuadro"]["Contraseña"].value;
+    this.ionViewDidEnter();
+    for(let usuario of this.listaUsuarios){
+      if(usuario.user == nombreUsuario){
+        if(usuario.contraseña == contraseña){
+          alert("Bienvenido, " + nombreUsuario)
+          //Pasamos a Home de paciente (tipo 0) o de doctor (tipo 1) y le damos como parámetro el usuario
+          if(usuario.tipo == 0){
+            this.navCtrl.push(HomePage, {nombre:usuario.user});
+          }
+          return;
+        }
+      }
+    }
+    alert("Has escrito mal el nombre de usuario o la contraseña")
+    return;
   }
+
 }

@@ -42,11 +42,12 @@ export class FirebaseDbProvider {
   }
 
   //La referencia debe ser dinámica
-  private DiagnosticosRef=this.afDB.list<Diagnostico>('Diagnostico/paciente2');
 
-  getDiagnosticos()
+
+  getDiagnosticos(paciente)
   {
-        return this.DiagnosticosRef.valueChanges();
+      var DiagnosticosRef=this.afDB.list<Diagnostico>('Diagnostico/' + paciente);
+      return DiagnosticosRef.valueChanges();
   }
 
   delDiagnostico(paciente, id)

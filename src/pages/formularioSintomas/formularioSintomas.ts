@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams} from 'ionic-angular';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 import {Usuario} from '../../models/usuario.model';
 import {Diagnostico} from '../../models/diagnostico.model';
@@ -12,9 +12,9 @@ export class FormularioSintomasPage {
 
   //Sobre usuarios
   listaUsuarios:any;
-
-  constructor(public navCtrl: NavController,public dbFirebase:FirebaseDbProvider) {
-
+  nombre = '';
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider) {
+    this.nombre = navParams.get('nombre');
   }
 
 
@@ -49,22 +49,27 @@ export class FormularioSintomasPage {
 
   }
 
-  ionViewDidEnterDiagnosticos()
+  ionViewDidEnter()
   {
-    this.dbFirebase.getDiagnosticos().subscribe(listaDiagnosticos=>{this.listaDiagnosticos=listaDiagnosticos;});
+    this.dbFirebase.getDiagnosticos(this.nombre).subscribe(listaDiagnosticos=>{this.listaDiagnosticos=listaDiagnosticos;});
   }
-
 
   //Funcion para enviar formulario de sintomas
   enviarFormulario():void{
-    var x = document.forms["formularioPeticion"]["descripcionSintomas"].value;
-    if (x == "") {
+    var sintomas = document.forms["formularioPeticion"]["descripcionSintomas"].value;
+    if (sintomas == "") {
       alert("Debes escribir una descripción a tus síntomas");
       return;
     }
+    //Calculamos fecha
     var f = new Date();
     var fechaActual = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
-    this.addDiagnostico("paciente2", "Aún sin asignar", fechaActual, x, "Aún sin diagnosticar", "X");
+    //Calculamos id (será el número de diagnóstico cronológicamente)
+
+    var id = this.listaDiagnosticos.length;
+    //Añadimos diagnóstico
+    this.addDiagnostico(this.nombre, "Aún sin asignar", fechaActual, sintomas, "Aún sin diagnosticar", id);
+    this.navCtrl.pop();
     return;
   }
 

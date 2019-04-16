@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color: rgb(195, 195, 195)">
+  <!-- Cabecera -->
+  <header>
+    <img src="../assets/icon/logoDoctOnline.jpg" style="width:70px;height:45px;" class="logo">
+    <h3 class="titulo">DOCTONLINE</h3>
+    <img src="../assets/imgs/imgUsuario.png" style="width:60px;height:50px;" class="imgUsuario">
+  </header>
+
+  <!-- Datos de diagnóstico -->
+  <div id="diagnostico">
+    <p>Doctor: {{obtenerCampo("doctor")}}</p>
+    <p>Fecha: {{obtenerCampo("fecha")}}</p>
+    <div class="descripcion" >
+    <p>Síntomas: {{obtenerCampo("sintoma")}}</p>
+    </div>
+    <div class="descripcion" >
+      <p>Diagnóstico: {{obtenerCampo("diagnostico")}}</p>
+    </div>
+  </div>
+
+
+</ion-content>

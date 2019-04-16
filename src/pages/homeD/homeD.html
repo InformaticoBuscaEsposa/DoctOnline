@@ -19,13 +19,21 @@
     <img src="../assets/imgs/botonPedirDiagnostico.png" style="width:130px;height:50px;" id="botonPedirDiagnostico" ion-button (click)='irPaginaCrearDiagnostico()'>
     <h5>Diagnósticos</h5>
 
-    <div class="fichaDiagnostico" *ngFor="let item of listaDiagnosticos">
-      <img src="../assets/imgs/verDiagnostico.png" style="width:80px;height:80px;" id="botonVerDiagnostico" ion-button (click)='irPaginaDiagnostico([item.id])'>
-      <div class="datosFichaDiagnostico">
-        <p>Doctor: {{item.doctor}}</p>
-        <p>Fecha: {{item.fecha}}</p>
-        <p>Síntomas: {{truncarSintoma([item.sintoma])}}</p>
+    <div *ngFor="let usuario of listaUsuarios">
+      {{ionViewDidEnterDiagnosticos([usuario.user])}}
+
+      <div *ngFor="let item of listaDiagnosticos">
+        <h5>{{item.fecha}}</h5>
       </div>
+      <!--{{seleccionarDiagnosticos()}}
+      <div  class="fichaDiagnostico" *ngFor="let item of listaDiagnosticos">
+        <img src="../assets/imgs/verDiagnostico.png" style="width:80px;height:80px;" id="botonVerDiagnostico" ion-button (click)='irPaginaDiagnostico([item.id])'>
+        <div class="datosFichaDiagnostico">
+          <p>Doctor: {{item.paciente}}</p>
+          <p>Fecha: {{item.fecha}}</p>
+          <p>Síntomas: {{truncarSintoma([item.sintoma])}}</p>
+        </div>
+      </div>-->
     </div>
 
 

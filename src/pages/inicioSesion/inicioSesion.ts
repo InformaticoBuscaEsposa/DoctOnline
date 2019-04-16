@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 import {Usuario} from '../../models/usuario.model';
 import {HomePage} from '../home/home';
+import {HomeDPage} from '../homeD/homeD';
 
 @Component({
   selector: 'page-inicioSesion',
@@ -39,6 +40,9 @@ export class InicioSesionPage {
           //Pasamos a Home de paciente (tipo 0) o de doctor (tipo 1) y le damos como parámetro el usuario
           if(usuario.tipo == 0){
             this.navCtrl.push(HomePage, {nombre:usuario.user});
+          }
+          if(usuario.tipo == 1){
+            this.navCtrl.push(HomeDPage, {nombre:usuario.user});
           }
           return;
         }

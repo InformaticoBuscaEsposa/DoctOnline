@@ -7,10 +7,10 @@ import {FormularioSintomasPage} from '../formularioSintomas/formularioSintomas';
 import {DiagnosticoPage} from '../diagnostico/diagnostico';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-homeD',
+  templateUrl: 'homeD.html'
 })
-export class HomePage {
+export class HomeDPage {
 
   //Sobre usuarios
   listaUsuarios:any;
@@ -20,7 +20,7 @@ export class HomePage {
   }
 
 
-  ionViewDidEnterUsuarios()
+  ionViewDidEnter()
   {
 	  this.dbFirebase.getUsuarios().subscribe(listaUsuarios=>{this.listaUsuarios=listaUsuarios;});
   }
@@ -34,9 +34,19 @@ export class HomePage {
   //Sobre diagnosticos
   listaDiagnosticos:any;
 
-  ionViewDidEnter()
+  ionViewDidEnterDiagnosticos(usuario)
   {
-    this.dbFirebase.getDiagnosticos(this.nombre).subscribe(listaDiagnosticos=>{this.listaDiagnosticos=listaDiagnosticos;});
+    this.listaDiagnosticos = [];
+    this.dbFirebase.getDiagnosticos(usuario).subscribe(listaDiagnosticos=>{this.listaDiagnosticos=listaDiagnosticos;});
+  }
+
+  seleccionarDiagnosticos()
+  {
+    for(let diagnostico of this.listaDiagnosticos){
+      if(diagnostico.doctor != this.nombre){
+        this.listaDiagnosticos.splice(diagnostico.id, 1);
+      }
+    }
   }
 
   irPaginaCrearDiagnostico(){

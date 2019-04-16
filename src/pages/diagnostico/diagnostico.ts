@@ -5,16 +5,18 @@ import {Usuario} from '../../models/usuario.model';
 import {Diagnostico} from '../../models/diagnostico.model';
 
 @Component({
-  selector: 'page-formularioSintomas',
-  templateUrl: 'formularioSintomas.html'
+  selector: 'page-diagnostico',
+  templateUrl: 'diagnostico.html'
 })
-export class FormularioSintomasPage {
+export class DiagnosticoPage {
 
   //Sobre usuarios
   listaUsuarios:any;
   nombre = '';
+  id ='';
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider) {
     this.nombre = navParams.get('nombre');
+    this.id = navParams.get('id');
   }
 
 
@@ -54,28 +56,26 @@ export class FormularioSintomasPage {
     this.dbFirebase.getDiagnosticos(this.nombre).subscribe(listaDiagnosticos=>{this.listaDiagnosticos=listaDiagnosticos;});
   }
 
-  //Funcion para enviar formulario de sintomas
-  enviarFormulario():void{
-    var sintomas = document.forms["formularioPeticion"]["descripcionSintomas"].value;
-    if (sintomas == "") {
-      alert("Debes escribir una descripción a tus síntomas");
-      return;
+  obtenerCampo(campo):string
+  {
+    for(let diagnostico of this.listaDiagnosticos){
+      if(diagnostico.id == this.id){
+        var campoDevuelto;
+        if (campo=="doctor"){
+          campoDevuelto = diagnostico.doctor.toString();
+        }
+        if (campo=="fecha"){
+          campoDevuelto = diagnostico.fecha.toString();
+        }
+        if (campo=="sintoma"){
+          campoDevuelto = diagnostico.sintoma.toString();
+        }
+        if (campo=="diagnostico"){
+          campoDevuelto = diagnostico.diagnostico.toString();
+        }
+        return campoDevuelto;
+      }
     }
-    if (sintomas.length > 100) {
-      alert("La descripción no puede tener más de 60 caracteres");
-      return;
-    }
-    //Calculamos fecha
-    var f = new Date();
-    var fechaActual = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
-    //Calculamos id (será el número de diagnóstico cronológicamente)
-
-    var id = this.listaDiagnosticos.length;
-    //Añadimos diagnóstico
-    this.addDiagnostico(this.nombre, "Aún sin asignar", fechaActual, sintomas, "Aún sin diagnosticar", id);
-    this.navCtrl.pop();
-    return;
   }
-
 
 }

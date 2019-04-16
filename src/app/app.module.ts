@@ -15,7 +15,9 @@ import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
 import { InicioSesionPageModule } from '../pages/inicioSesion/inicioSesion.module'
 import { RegistroPageModule } from '../pages/registro/registro.module'
 import { HomePageModule } from '../pages/home/home.module'
+import { HomeDPageModule } from '../pages/homeD/homeD.module'
 import { FormularioSintomasPageModule } from '../pages/formularioSintomas/formularioSintomas.module'
+import { DiagnosticoPageModule } from '../pages/diagnostico/diagnostico.module'
 
 export const fireBaseConfig={
 	apiKey: "AIzaSyDR98UZlU2UdyEIxE_Xj_gMnei7AifCduU",
@@ -37,7 +39,9 @@ export const fireBaseConfig={
 		InicioSesionPageModule,
 		RegistroPageModule,
 		HomePageModule,
+		HomeDPageModule,
 		FormularioSintomasPageModule,
+		DiagnosticoPageModule,
 		AngularFireModule.initializeApp(fireBaseConfig),AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],

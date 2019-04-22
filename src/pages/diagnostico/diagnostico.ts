@@ -32,7 +32,7 @@ export class DiagnosticoPage {
 
 
   //Sobre diagnosticos
-  listaDiagnosticos:any;
+  listaDiagnosticos:any = 0;
 
   addDiagnostico(paciente, doctor, fecha, sintoma, diagnostico, id)
   {

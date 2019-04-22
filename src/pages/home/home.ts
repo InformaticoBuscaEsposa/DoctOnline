@@ -44,7 +44,7 @@ export class HomePage {
   }
 
   irPaginaDiagnostico(id){
-    this.navCtrl.push(DiagnosticoPage, {nombre:this.nombre}, {id:id});
+    this.navCtrl.push(DiagnosticoPage, {nombre:this.nombre, id:id});
   }
 
   truncarSintoma(sintoma):string{

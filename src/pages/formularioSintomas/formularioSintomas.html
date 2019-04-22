@@ -18,8 +18,8 @@
   <form id="formularioPeticion">
     <h5>Tus síntomas</h5>
     <!-- Formulario -->
-    <p>Descripción</p>
-    <textarea id="descripcionSintomas" rows=5 cols=30 maxlength="150" placeholder="Dinos qué te ocurre"></textarea>
+    <p style="float:left; margin-left: 5px; margin-top: 30px;">Describe tus síntomas: </p>
+    <textarea id="descripcionSintomas" rows=6 cols=30 maxlength="180" placeholder="Dinos qué te ocurre"></textarea>
 
     <button ion-button (click)="enviarFormulario()" class="botonEnviarSintomas">Enviar síntomas</button>
   </form>

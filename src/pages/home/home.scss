@@ -31,6 +31,8 @@ header .imgUsuario{
 
 #diagnosticos h5{
   padding-left: 3%;
+  color: rgb(22, 22, 22);
+  padding-top: 5px;
 }
 
 #diagnosticos #botonPedirDiagnostico{
@@ -40,13 +42,15 @@ header .imgUsuario{
   background-color: transparent;
 }
 
+
 #diagnosticos .fichaDiagnostico{
   background-color: white;
   margin: 5px;
-  margin-top: 20px;
   padding: 5%;
   border: 1px solid black;
   border-radius: 2px;
+  font-size: 10px;
+  height: 100px;
 }
 
 #diagnosticos #botonVerDiagnostico{
@@ -58,5 +62,5 @@ header .imgUsuario{
 }
 
 #diagnosticos .datosFichaDiagnostico{
-  width: 60%;
+  width: 65%;
 }

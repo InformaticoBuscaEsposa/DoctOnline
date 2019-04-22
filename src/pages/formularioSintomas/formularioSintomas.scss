@@ -35,10 +35,14 @@ header .imgUsuario{
 }
 
 #descripcionSintomas{
-  margin: 5%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
   border: 2px solid black;
-  border-radius: 2px;
-
+  border-radius: 5px;
+  text-align: center;
+  font-size:14px;
 }
 
 .botonEnviarSintomas{
@@ -46,4 +50,6 @@ header .imgUsuario{
   background-color: white;
   color: black;
   margin: 7%;
+  border-radius: 5px;
+  border: 2px solid black;
 }

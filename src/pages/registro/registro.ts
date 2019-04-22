@@ -61,25 +61,42 @@ export class RegistroPage {
     }
     //Contraseñas coinciden
     var contraseña = document.forms["registro"]["Pass"].value;
+    if(contraseña.length < 4){
+      alert("Las contraseña es demasiado corta.");
+      return;
+    }
     var repContraseña = document.forms["registro"]["RepPass"].value;
     if(contraseña != repContraseña){
       alert("Las contraseñas no coinciden.");
       return;
     }
     //Tipo asignado según si es paciente o doctor
+    var tipo;
     if (document.forms["registro"]["Tipo"].value == "PAC"){
-      var tipo = false;
+      tipo = false;
     } else{
-      var tipo = true;
+      tipo = true;
     }
     var nombre = document.forms["registro"]["Nom"].value;
+    if (nombre == "") {
+      alert("Debes escribir tu nombre");
+      return;
+    }
     var apellido = document.forms["registro"]["Ape"].value;
     var correo = document.forms["registro"]["Email"].value;
+    if (usuario == "") {
+      alert("Debes escribir tu correo");
+      return;
+    }
     var fecha = document.forms["registro"]["FNac"].value;
     var nacionalidad = document.forms["registro"]["Nac"].value;
     var codigoPostal = document.forms["registro"]["CP"].value;
     var direccion = document.forms["registro"]["Dir"].value;
     var seguridadSocial = document.forms["registro"]["SS"].value;
+    if (!document.forms["registro"]["condiciones"].checked){
+      alert("Debes aceptar nuestras condiciones");
+      return;
+    }
     this.addUsuario(usuario, contraseña, tipo, nombre, apellido, correo, nacionalidad, codigoPostal, direccion, seguridadSocial);
     alert("Te has registrado con éxito")
     this.volverPaginaEntrada();

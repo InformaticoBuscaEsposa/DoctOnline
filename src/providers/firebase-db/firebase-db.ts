@@ -50,6 +50,12 @@ export class FirebaseDbProvider {
       return DiagnosticosRef.valueChanges();
   }
 
+  getAllDiagnosticos()
+  {
+      var DiagnosticosRef=this.afDB.list<Diagnostico>('Diagnostico');
+      return DiagnosticosRef.valueChanges();
+  }
+
   delDiagnostico(paciente, id)
   {
 	  this.afDB.database.ref('Diagnostico/' + paciente + '/' + id).remove();

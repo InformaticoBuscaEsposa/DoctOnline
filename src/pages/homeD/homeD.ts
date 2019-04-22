@@ -13,16 +13,10 @@ import {DiagnosticoPage} from '../diagnostico/diagnostico';
 export class HomeDPage {
 
   //Sobre usuarios
-  listaUsuarios:any;
+  listaUsuarios:any = 0;
   nombre = '';
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider) {
     this.nombre = navParams.get('nombre');
-  }
-
-
-  ionViewDidEnter()
-  {
-	  this.dbFirebase.getUsuarios().subscribe(listaUsuarios=>{this.listaUsuarios=listaUsuarios;});
   }
 
   delUsuario(user)
@@ -32,19 +26,45 @@ export class HomeDPage {
 
 
   //Sobre diagnosticos
-  listaDiagnosticos:any;
+  listaDiagnosticos:any = 0;
 
+  /*
   ionViewDidEnterDiagnosticos(usuario)
   {
-    this.listaDiagnosticos = [];
-    this.dbFirebase.getDiagnosticos(usuario).subscribe(listaDiagnosticos=>{this.listaDiagnosticos=listaDiagnosticos;});
+    var promise = new Promise((resolve, reject) => {
+      this.dbFirebase.getDiagnosticos(usuario).subscribe(listaDiagnosticos=>{this.listaDiagnosticos=listaDiagnosticos;});
+      resolve();
+    });
+    return promise;
+  }
+
+  seleccionarDiagnosticos(usuario)
+  {
+    this.listaDiagnosticos = 0;
+    this.ionViewDidEnterDiagnosticos(usuario).then(
+      function(){
+        for(let diagnostico of this.listaDiagnosticos){
+          if(diagnostico.doctor != this.nombre){
+            this.listaDiagnosticos.splice(diagnostico.id, 1);
+          }
+        }
+      }
+    );
+  }
+  */
+  ionViewDidEnter()
+  {
+    this.dbFirebase.getUsuarios().subscribe(listaUsuarios=>{this.listaUsuarios=listaUsuarios;});
+    this.dbFirebase.getAllDiagnosticos().subscribe(listaDiagnosticos=>{this.listaDiagnosticos=listaDiagnosticos;});
   }
 
   seleccionarDiagnosticos()
   {
-    for(let diagnostico of this.listaDiagnosticos){
-      if(diagnostico.doctor != this.nombre){
-        this.listaDiagnosticos.splice(diagnostico.id, 1);
+    for(let listaItem of this.listaDiagnosticos){
+      for(let diagnostico of listaItem){
+        if(diagnostico.doctor != this.nombre){
+          this.listaDiagnosticos.splice(diagnostico.id, 1);
+        }
       }
     }
   }

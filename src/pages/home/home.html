@@ -16,11 +16,11 @@
 
   <!-- Lista de diagnosticos -->
   <div id="diagnosticos">
-    <img src="../assets/imgs/botonPedirDiagnostico.png" style="width:130px;height:50px;" id="botonPedirDiagnostico" ion-button (click)='irPaginaCrearDiagnostico()'>
-    <h5>Diagnósticos</h5>
+        <img src="../assets/imgs/botonPedirDiagnostico.png" style="width:130px;height:50px; margin-bottom: 10px;" id="botonPedirDiagnostico" ion-button (click)='irPaginaCrearDiagnostico()'>
+        <h5>Diagnósticos</h5>
 
     <div class="fichaDiagnostico" *ngFor="let item of listaDiagnosticos">
-      <img src="../assets/imgs/verDiagnostico.png" style="width:80px;height:80px;" id="botonVerDiagnostico" ion-button (click)='irPaginaDiagnostico([item.id])'>
+      <img src="../assets/imgs/verDiagnostico.png" style="width:50px;height:50px;" id="botonVerDiagnostico" ion-button (click)='irPaginaDiagnostico([item.id])'>
       <div class="datosFichaDiagnostico">
         <p>Doctor: {{item.doctor}}</p>
         <p>Fecha: {{item.fecha}}</p>

@@ -44,7 +44,7 @@
               <input class="formL" id="Email" type = "email" placeholder="Email" required>
               <input class="formR" id="FNac" type = "date" required>
               <input class="formL" id="Nac" type="text" placeholder="Nacionalidad" required>
-              <input class="formR" id="CP" type="text" placeholder="Código Postal" required>
+              <input class="formR" id="CP" type="number" placeholder="Código Postal" required>
               <input class="formL" id="Dir" type="text" placeholder="Dirección" required>
               <input class="formR" id="SS" type="text" placeholder="Número Seguridad Social" required>
           </fieldset>
@@ -52,7 +52,7 @@
           <h2 class="TituloRegistro"> CONDICIONES DE USO </h2>
 
           <fieldset class="fieldset-condiciones">
-              <input class="input-condiciones" type="checkbox" name="condiciones" required> He leído y acepto las Condiciones de uso
+              <input class="input-condiciones" id="condiciones" type="checkbox" name="condiciones" required> He leído y acepto las Condiciones de uso
           </fieldset>
 
           <button class="registro-submit" ion-button (click)='enviarFormularioRegistro()'>REGISTRARSE</button>

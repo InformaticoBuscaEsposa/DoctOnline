@@ -11,8 +11,6 @@ import {RegistroPage} from '../registro/registro';
 })
 export class EntradaPage {
 
-  listaUsuarios:any;
-
   constructor(public navCtrl: NavController,public dbFirebase:FirebaseDbProvider) {
   }
 

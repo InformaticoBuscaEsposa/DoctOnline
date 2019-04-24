@@ -88,10 +88,21 @@ export class RegistroPage {
       alert("Debes escribir tu correo");
       return;
     }
-    var fecha = document.forms["registro"]["FNac"].value;
     var nacionalidad = document.forms["registro"]["Nac"].value;
+    if (nacionalidad == "") {
+      alert("Debes escribir tu nacionalidad");
+      return;
+    }
     var codigoPostal = document.forms["registro"]["CP"].value;
+    if (codigoPostal == "") {
+      alert("Debes escribir tu Código Postal");
+      return;
+    }
     var direccion = document.forms["registro"]["Dir"].value;
+    if (direccion == "") {
+      alert("Debes escribir tu dirección");
+      return;
+    }
     var seguridadSocial = document.forms["registro"]["SS"].value;
     if (!document.forms["registro"]["condiciones"].checked){
       alert("Debes aceptar nuestras condiciones");

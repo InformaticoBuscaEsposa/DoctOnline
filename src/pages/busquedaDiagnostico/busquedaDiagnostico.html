@@ -16,7 +16,7 @@
 
   <!-- Lista de diagnosticos -->
   <div id="diagnosticos">
-    <h5>Diagnósticos sin asignar</h5>
+    <h5 style="color: rgb(40, 41, 42);font-size:20px; text-align:center;">Diagnósticos sin asignar</h5>
     <div *ngFor="let listaItem of seleccionarDiagnosticos()">
       <div  class="fichaDiagnostico" *ngFor="let item of listaItem">
         <img src="../assets/imgs/diagnosticar.png" style="width:50px;height:50px;" id="botonVerDiagnostico" ion-button (click)='irPaginaFormularioDiagnostico([item.paciente], [item.id])'>

@@ -16,10 +16,11 @@
 
   <!-- Datos de consulta para petición de diagnostico -->
   <form id="formularioPeticion">
-    <h5>Los síntomas de {{obtenerNombre()}}</h5>
+    <h5 style="color: rgb(40, 41, 42);font-size:22px;">Los síntomas de </h5>
+    <h5 style=" color: rgb(40, 41, 42); font-size:26px;"><strong>{{obtenerNombre()}}</strong></h5>
     <p>{{obtenerSintomas()}}</p>
     <!-- Formulario -->
-    <p style="float:left; margin-left: 5px; margin-top: 30px;">Describe tu diagnóstico: </p>
+    <p style="float:left; margin-left: 15px; margin-top: 25px;">Describe tu diagnóstico: </p>
     <textarea id="descripcionDiagnostico" rows=6 cols=30 maxlength="180" placeholder="¿Cuál es tu diagnóstico?"></textarea>
 
     <button ion-button (click)="enviarFormulario()" class="botonEnviarSintomas">Enviar diagnóstico</button>

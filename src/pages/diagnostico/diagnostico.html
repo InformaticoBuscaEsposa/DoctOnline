@@ -16,15 +16,17 @@
 
   <!-- Datos de diagnóstico -->
   <div id="diagnostico">
-    <p>Paciente: {{obtenerCampo("paciente")}}</p>
-    <p>Doctor: {{obtenerCampo("doctor")}}</p>
-    <p>Fecha: {{obtenerCampo("fecha")}}</p>
-    <div class="descripcion" >
-    <p>Síntomas: {{obtenerCampo("sintoma")}}</p>
-    </div>
-    <div class="descripcion" >
-      <p>Diagnóstico: {{obtenerCampo("diagnostico")}}</p>
-    </div>
+    <fieldset class="caja">
+        <p><strong>Paciente: </strong>{{obtenerCampo("paciente")}}</p>
+        <p><strong>Doctor: </strong>{{obtenerCampo("doctor")}}</p>
+        <p><strong>Fecha: </strong>{{obtenerCampo("fecha")}}</p>
+        <div class="descripcion" >
+        <p><strong>Síntomas: </strong>{{obtenerCampo("sintoma")}}</p>
+        </div>
+        <div class="descripcion" >
+          <p><strong>Diagnóstico: </strong>{{obtenerCampo("diagnostico")}}</p>
+        </div>
+    </fieldset>
   </div>
 
 

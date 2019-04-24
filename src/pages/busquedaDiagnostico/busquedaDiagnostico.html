@@ -16,11 +16,10 @@
 
   <!-- Lista de diagnosticos -->
   <div id="diagnosticos">
-    <img src="../assets/imgs/botonRealizarDiagnostico.png" style="width:130px;height:50px; margin-bottom: 10px;" id="botonPedirDiagnostico" ion-button (click)='irPaginaBuscarDiagnostico()'>
-    <h5>Diagnósticos</h5>
+    <h5>Diagnósticos sin asignar</h5>
     <div *ngFor="let listaItem of seleccionarDiagnosticos()">
       <div  class="fichaDiagnostico" *ngFor="let item of listaItem">
-        <img src="../assets/imgs/verDiagnostico.png" style="width:50px;height:50px;" id="botonVerDiagnostico" ion-button (click)='irPaginaDiagnostico([item.paciente], [item.id])'>
+        <img src="../assets/imgs/diagnosticar.png" style="width:50px;height:50px;" id="botonVerDiagnostico" ion-button (click)='irPaginaFormularioDiagnostico([item.paciente], [item.id])'>
         <div class="datosFichaDiagnostico">
           <p>Paciente: {{item.paciente}}</p>
           <p>Fecha: {{item.fecha}}</p>
@@ -30,8 +29,6 @@
     </div>
 
   </div>
-
-
 
 
 </ion-content>

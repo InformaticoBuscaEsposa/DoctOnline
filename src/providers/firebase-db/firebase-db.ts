@@ -41,8 +41,10 @@ export class FirebaseDbProvider {
 	  return this.afDB.database.ref('Diagnostico/'+diagnostico.paciente + '/' + diagnostico.id).set(diagnostico);
   }
 
-  //La referencia debe ser dinámica
-
+  editaDiagnostico(diagnostico:Diagnostico)
+  {
+    return this.afDB.database.ref('Diagnostico/'+ diagnostico.paciente + '/' + diagnostico.id).update(diagnostico);
+  }
 
   getDiagnosticos(paciente)
   {

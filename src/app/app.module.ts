@@ -18,6 +18,8 @@ import { HomePageModule } from '../pages/home/home.module'
 import { HomeDPageModule } from '../pages/homeD/homeD.module'
 import { FormularioSintomasPageModule } from '../pages/formularioSintomas/formularioSintomas.module'
 import { DiagnosticoPageModule } from '../pages/diagnostico/diagnostico.module'
+import { BusquedaDiagnosticoPageModule } from '../pages/busquedaDiagnostico/busquedaDiagnostico.module'
+import { FormularioDiagnosticoPageModule } from '../pages/formularioDiagnostico/formularioDiagnostico.module'
 
 export const fireBaseConfig={
 	apiKey: "AIzaSyDR98UZlU2UdyEIxE_Xj_gMnei7AifCduU",
@@ -42,6 +44,8 @@ export const fireBaseConfig={
 		HomeDPageModule,
 		FormularioSintomasPageModule,
 		DiagnosticoPageModule,
+		BusquedaDiagnosticoPageModule,
+		FormularioDiagnosticoPageModule,
 		AngularFireModule.initializeApp(fireBaseConfig),AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],

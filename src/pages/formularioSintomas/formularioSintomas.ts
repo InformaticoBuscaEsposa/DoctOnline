@@ -23,12 +23,6 @@ export class FormularioSintomasPage {
 	  this.dbFirebase.getUsuarios().subscribe(listaUsuarios=>{this.listaUsuarios=listaUsuarios;});
   }
 
-  delUsuario(user)
-  {
-	  this.dbFirebase.delUsuario(user);
-  }
-
-
   //Sobre diagnosticos
   listaDiagnosticos:any;
 
@@ -62,7 +56,7 @@ export class FormularioSintomasPage {
       return;
     }
     if (sintomas.length > 100) {
-      alert("La descripción no puede tener más de 60 caracteres");
+      alert("La descripción no puede tener más de 100 caracteres");
       return;
     }
     //Calculamos fecha

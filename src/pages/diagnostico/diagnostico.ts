@@ -61,6 +61,9 @@ export class DiagnosticoPage {
     for(let diagnostico of this.listaDiagnosticos){
       if(diagnostico.id == this.id){
         var campoDevuelto;
+        if (campo=="paciente"){
+          campoDevuelto = diagnostico.paciente.toString();
+        }
         if (campo=="doctor"){
           campoDevuelto = diagnostico.doctor.toString();
         }

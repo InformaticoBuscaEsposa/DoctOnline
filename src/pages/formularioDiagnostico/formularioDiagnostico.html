@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color: rgb(195, 195, 195)">
+  <!-- Cabecera -->
+  <header>
+    <img src="../assets/icon/logoDoctOnline.jpg" style="width:70px;height:45px;" class="logo">
+    <h3 class="titulo">DOCTONLINE</h3>
+    <img src="../assets/imgs/imgUsuario.png" style="width:60px;height:50px;" class="imgUsuario">
+  </header>
+
+  <!-- Datos de consulta para petición de diagnostico -->
+  <form id="formularioPeticion">
+    <h5>Los síntomas de {{obtenerNombre()}}</h5>
+    <p>{{obtenerSintomas()}}</p>
+    <!-- Formulario -->
+    <p style="float:left; margin-left: 5px; margin-top: 30px;">Describe tu diagnóstico: </p>
+    <textarea id="descripcionDiagnostico" rows=6 cols=30 maxlength="180" placeholder="¿Cuál es tu diagnóstico?"></textarea>
+
+    <button ion-button (click)="enviarFormulario()" class="botonEnviarSintomas">Enviar diagnóstico</button>
+  </form>
+
+
+</ion-content>

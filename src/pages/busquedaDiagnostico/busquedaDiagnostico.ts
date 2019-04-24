@@ -3,15 +3,13 @@ import { NavController, NavParams } from 'ionic-angular';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 import {Usuario} from '../../models/usuario.model';
 import {Diagnostico} from '../../models/diagnostico.model';
-import {FormularioSintomasPage} from '../formularioSintomas/formularioSintomas';
-import {DiagnosticoPage} from '../diagnostico/diagnostico';
-import {BusquedaDiagnosticoPage} from '../busquedaDiagnostico/busquedaDiagnostico';
+import {FormularioDiagnosticoPage} from '../formularioDiagnostico/formularioDiagnostico';
 
 @Component({
-  selector: 'page-homeD',
-  templateUrl: 'homeD.html'
+  selector: 'page-busquedaDiagnostico',
+  templateUrl: 'busquedaDiagnostico.html'
 })
-export class HomeDPage {
+export class BusquedaDiagnosticoPage {
 
   //Sobre usuarios
   listaUsuarios:any = 0;
@@ -41,7 +39,7 @@ export class HomeDPage {
     var numeroEliminaciones=0;
     for(let listaItem of this.listaDiagnosticos){
       for(let diagnostico of listaItem){
-        if(diagnostico.doctor != this.nombre){
+        if(diagnostico.doctor != "Aún sin asignar"){
           indicesEliminar.push(diagnostico.id-numeroEliminaciones);
           numeroEliminaciones++;
         }
@@ -55,12 +53,8 @@ export class HomeDPage {
     return this.listaDiagnosticos;
   }
 
-  irPaginaBuscarDiagnostico(){
-    this.navCtrl.push(BusquedaDiagnosticoPage, {nombre:this.nombre});
-  }
-
-  irPaginaDiagnostico(nombrePaciente, id){
-    this.navCtrl.push(DiagnosticoPage, {nombre:nombrePaciente, id:id});
+  irPaginaFormularioDiagnostico(nombrePaciente, id){
+    this.navCtrl.push(FormularioDiagnosticoPage, {nombreDoctor:this.nombre, nombrePaciente:nombrePaciente, id:id});
   }
 
   truncarSintoma(sintoma):string{

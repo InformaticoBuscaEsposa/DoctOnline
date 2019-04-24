@@ -20,7 +20,12 @@
         <h5>Diagnósticos</h5>
 
     <div class="fichaDiagnostico" *ngFor="let item of listaDiagnosticos">
+      <div *ngIf="item.doctor != 'Aún sin asignar' ">
       <img src="../assets/imgs/verDiagnostico.png" style="width:50px;height:50px;" id="botonVerDiagnostico" ion-button (click)='irPaginaDiagnostico([item.id])'>
+      </div>
+      <div *ngIf="item.doctor == 'Aún sin asignar' ">
+      <img src="../assets/imgs/verDiagnosticoSinAsignar.png" style="width:50px;height:50px;" id="botonVerDiagnostico" ion-button (click)='irPaginaDiagnostico([item.id])'>
+      </div>
       <div class="datosFichaDiagnostico">
         <p>Doctor: {{item.doctor}}</p>
         <p>Fecha: {{item.fecha}}</p>

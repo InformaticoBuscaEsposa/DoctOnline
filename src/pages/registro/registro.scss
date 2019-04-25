@@ -33,7 +33,7 @@ div.registro{
   background-color: rgb(132, 240, 43);
   width:100%;
   margin-top: 2%;
-  margin-bottom: 2%; 
+  margin-bottom: 2%;
   padding: 1%;
   text-align:center;
 }
@@ -90,16 +90,14 @@ input.input-condiciones{
   width: 5%;
 }
 
-input.registro-submit{
-  color: white; 
-  background-color: rgb(0, 153, 255);
-  border: solid blue 1px;
+.registro-submit{
   width: 40%;
   height: 50px;
   margin-left:30%;
   margin-right:30%;
   text-align:center;
   margin-top: 2%;
+  margin-bottom: 5%;
   cursor: pointer;
 }
 
@@ -107,5 +105,3 @@ input.registro-submit{
   height: 25px;
   text-align: center;
 }
-
-

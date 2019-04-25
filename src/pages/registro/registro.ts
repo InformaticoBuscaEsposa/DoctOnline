@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 import {Usuario} from '../../models/usuario.model';
-import {EntradaPage} from '../entrada/entrada';
 
 @Component({
   selector: 'page-registro',
@@ -32,14 +31,14 @@ export class RegistroPage {
     datosUsuario.SegSocial=SS;
 
 		this.dbFirebase.guardaUsuario(datosUsuario).then(res=>{
-			alert(datosUsuario.user+ " guardado en FB");
+			alert("Te has registrado con éxito");
 
 
 		});
 
   }
 
-  ionViewDidEnterUsuarios()
+  ionViewDidEnter()
   {
 	  this.dbFirebase.getUsuarios().subscribe(listaUsuarios=>{this.listaUsuarios=listaUsuarios;});
   }
@@ -58,6 +57,13 @@ export class RegistroPage {
     if (usuario == "") {
       alert("Debes escribir tu nombre de usuario");
       return;
+    }
+    //Comprobamos que el nombre no esté cogido
+    for(let item of this.listaUsuarios){
+      if(item.user == usuario){
+        alert("Ese nombre de usuario ya está cogido");
+        return;
+      }
     }
     //Contraseñas coinciden
     var contraseña = document.forms["registro"]["Pass"].value;
@@ -84,32 +90,18 @@ export class RegistroPage {
     }
     var apellido = document.forms["registro"]["Ape"].value;
     var correo = document.forms["registro"]["Email"].value;
-    if (usuario == "") {
-      alert("Debes escribir tu correo");
-      return;
-    }
+
     var nacionalidad = document.forms["registro"]["Nac"].value;
-    if (nacionalidad == "") {
-      alert("Debes escribir tu nacionalidad");
-      return;
-    }
+
     var codigoPostal = document.forms["registro"]["CP"].value;
-    if (codigoPostal == "") {
-      alert("Debes escribir tu Código Postal");
-      return;
-    }
     var direccion = document.forms["registro"]["Dir"].value;
-    if (direccion == "") {
-      alert("Debes escribir tu dirección");
-      return;
-    }
+
     var seguridadSocial = document.forms["registro"]["SS"].value;
     if (!document.forms["registro"]["condiciones"].checked){
       alert("Debes aceptar nuestras condiciones");
       return;
     }
     this.addUsuario(usuario, contraseña, tipo, nombre, apellido, correo, nacionalidad, codigoPostal, direccion, seguridadSocial);
-    alert("Te has registrado con éxito")
     this.volverPaginaEntrada();
     return;
   }

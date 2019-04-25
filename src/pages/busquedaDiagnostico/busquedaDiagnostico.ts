@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
-import {Usuario} from '../../models/usuario.model';
 import {Diagnostico} from '../../models/diagnostico.model';
 import {FormularioDiagnosticoPage} from '../formularioDiagnostico/formularioDiagnostico';
 
@@ -11,17 +10,11 @@ import {FormularioDiagnosticoPage} from '../formularioDiagnostico/formularioDiag
 })
 export class BusquedaDiagnosticoPage {
 
-  //Sobre usuarios
-  listaUsuarios:any = 0;
   nombre = '';
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider) {
     this.nombre = navParams.get('nombre');
   }
 
-  delUsuario(user)
-  {
-	  this.dbFirebase.delUsuario(user);
-  }
 
 
   //Sobre diagnosticos
@@ -29,7 +22,6 @@ export class BusquedaDiagnosticoPage {
 
   ionViewDidEnter()
   {
-    this.dbFirebase.getUsuarios().subscribe(listaUsuarios=>{this.listaUsuarios=listaUsuarios;});
     this.dbFirebase.getAllDiagnosticos().subscribe(listaDiagnosticos=>{this.listaDiagnosticos=listaDiagnosticos;});
   }
 

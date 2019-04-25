@@ -38,7 +38,7 @@ export class FormularioSintomasPage {
     datosDiagnostico.id=id;
 
     this.dbFirebase.guardaDiagnostico(datosDiagnostico).then(res=>{
-      alert(" Diagnostico de " + datosDiagnostico.paciente + " con id " + datosDiagnostico.id + " guardado en FB");
+      alert("Tus síntomas han sido enviados correctamente");
     });
 
   }

@@ -30,24 +30,6 @@ export class FormularioDiagnosticoPage {
   //Sobre diagnosticos
   listaDiagnosticos:any = 0;
 
-  addDiagnostico(paciente, doctor, fecha, sintoma, diagnostico, id)
-  {
-
-    let datosDiagnostico:Diagnostico=new Diagnostico();
-
-    datosDiagnostico.paciente=paciente;
-    datosDiagnostico.doctor=doctor;
-    datosDiagnostico.fecha=fecha;
-    datosDiagnostico.sintoma=sintoma;
-    datosDiagnostico.diagnostico=diagnostico;
-    datosDiagnostico.id=id;
-
-    this.dbFirebase.guardaDiagnostico(datosDiagnostico).then(res=>{
-      alert(" Diagnostico de " + datosDiagnostico.paciente + " con id " + datosDiagnostico.id + " guardado en FB");
-    });
-
-  }
-
   cambiaDiagnostico(paciente, doctor, fecha, sintoma, diagnostico, id)
   {
 
@@ -65,7 +47,7 @@ export class FormularioDiagnosticoPage {
     //datosDiagnostico.id=id;
 
     this.dbFirebase.editaDiagnostico(datosDiagnostico).then(res=>{
-      alert(" Diagnostico de " + datosDiagnostico.paciente + " con id " + datosDiagnostico.id + " guardado en FB");
+      alert("Tu diagnóstico ha sido enviado correctamente");
     });
 
   }
